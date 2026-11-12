@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lupita Restaurante · Menú</title>
+<meta name="description" content="Desayunos y comida casera en Azcapotzalco. Desayuno completo por $220: platillo fuerte, jugo, café, pan y fruta. Pide por WhatsApp.">
+<meta name="theme-color" content="#1a5f7a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lupita Restaurante · Menú">
+<meta property="og:description" content="Desayunos y comida casera en Azcapotzalco. Desayuno completo por $220: platillo fuerte, jugo, café, pan y fruta. Pide por WhatsApp.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23c0392b%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2245%22%20font-size%3D%2238%22%20font-family%3D%22Arial%2Csans-serif%22%20font-weight%3D%22700%22%20fill%3D%22%23fff%22%20text-anchor%3D%22middle%22%3EL%3C/text%3E%3C/svg%3E">
+<meta property="og:url" content="https://torrezzzzdev.github.io/factor-digital/lupita/">
+<link rel="canonical" href="https://torrezzzzdev.github.io/factor-digital/lupita/">
+<meta property="og:image" content="https://torrezzzzdev.github.io/factor-digital/lupita/img/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>:root{--or:#e8772e;--red:#c0392b;--teal:#1a5f7a;--ink:#2b2b2b;--cream:#fff8f1;--border:#f3dcc8;--overlay:linear-gradient(rgba(26,95,122,.55),rgba(192,57,43,.55));--hero-fallback:linear-gradient(135deg,#1a5f7a,#c0392b);--font-display:'Pacifico',cursive;--font-body:'Nunito',system-ui,sans-serif}
+/* Plantilla de menú digital. Los colores y fuentes vienen de :root (theme.* en config.json).
+   Nombres cortos heredados del diseño original:
+   --or = primary, --red = accent, --teal = secondary, --ink = text, --cream = background */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);color:var(--ink);background:var(--cream);line-height:1.45}
+body.lock{overflow:hidden}
+a{color:inherit}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;color:#fff;text-align:center;padding:56px 20px 70px;background:var(--hero-fallback)}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero::before{content:"";position:absolute;inset:0;background:var(--overlay);z-index:1}
+.hero.noimg::before{display:none}
+.hero>*:not(.hero-bg){position:relative;z-index:2}
+.logo{display:block;margin:0 auto 12px;width:auto;height:96px;max-width:70%;object-fit:contain}
+.brand{font-family:var(--font-display);font-size:clamp(46px,12vw,80px);line-height:1;text-shadow:0 3px 10px rgba(0,0,0,.35)}
+.ribbon{display:inline-block;background:var(--red);padding:6px 22px;letter-spacing:.35em;font-weight:800;font-size:14px;margin-top:10px;border-radius:3px}
+.tag{margin-top:18px;font-size:clamp(17px,4.5vw,22px);font-weight:600;font-style:italic}
+.price{display:inline-block;margin-top:22px;background:#fff;color:var(--red);font-weight:800;font-size:34px;padding:8px 26px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.price small{display:block;font-size:12px;color:var(--teal);letter-spacing:.08em;font-weight:700}
+.cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:800;padding:12px 20px;border-radius:12px;background:#25d366;color:#fff;border:0;font:inherit;font-weight:800;cursor:pointer}
+.btn.alt{background:#fff;color:var(--teal)}
+.status{display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,.35);padding:6px 14px;border-radius:999px;font-weight:700;font-size:14px;margin-top:16px}
+.status:empty{display:none}
+.status i{width:10px;height:10px;border-radius:50%;background:#2ecc71;box-shadow:0 0 0 3px rgba(46,204,113,.3)}
+.status.off i{background:#e74c3c;box-shadow:0 0 0 3px rgba(231,76,60,.3)}
+
+/* ---------- Navegación ---------- */
+nav{position:sticky;top:0;z-index:5;background:var(--teal);display:flex;gap:6px;overflow-x:auto;padding:10px 12px;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{flex:none;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.12)}
+
+/* ---------- Contenido ---------- */
+main{max-width:980px;margin:0 auto;padding:26px 16px 40px}
+.note{background:#fff;border-left:5px solid var(--or);padding:14px 16px;border-radius:10px;margin-bottom:22px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:#fff;border-radius:16px;padding:20px;border:2px solid var(--border);box-shadow:0 3px 10px rgba(0,0,0,.05);scroll-margin-top:70px}
+.card h2{font-family:var(--font-display);font-weight:400;color:var(--red);font-size:24px;margin-bottom:10px}
+.catnote{font-size:13px;color:#666;margin-top:-6px}
+.card ul{list-style:none}
+.card li{padding:6px 0;border-bottom:1px dashed #eee}
+.card li:last-child{border:0}
+.card li b{color:var(--teal)}
+.card li span{display:block;font-size:14px;color:#666}
+.cols{columns:2;column-gap:18px}
+.order li{display:flex;align-items:center;justify-content:space-between;gap:10px;break-inside:avoid}
+.order li .nm{flex:1;min-width:0}
+.card li .pr{display:inline;flex:none;font-weight:800;color:var(--teal);font-size:15px;white-space:nowrap}
+.thumb{flex:none;width:56px;height:56px;border-radius:10px;object-fit:cover}
+.badge{font-style:normal;font-size:11px;font-weight:800;color:#fff;background:var(--or);padding:1px 7px;border-radius:999px;vertical-align:middle}
+.avail{display:block;font-size:12px;color:var(--or);font-weight:700}
+.add{flex:none;width:32px;height:32px;border-radius:50%;border:0;background:var(--or);color:#fff;font-size:20px;font-weight:800;cursor:pointer;line-height:1}
+.add:active{transform:scale(.9)}
+.add .q{font-size:14px}
+.add.has{background:var(--red)}
+.add:disabled{background:#ccc;cursor:not-allowed;transform:none}
+li.na .nm{opacity:.55}
+.photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:26px 0}
+.photos img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:14px;background:#eee}
+#reservar{margin-bottom:16px}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:6px}
+table{width:100%;border-collapse:collapse}
+td{padding:7px 0;border-bottom:1px dashed #eee}
+td:last-child{text-align:right;font-weight:700;color:var(--teal)}
+td.hnote{font-size:13px;color:#666!important;text-align:left!important;font-weight:400!important}
+.closed{color:var(--red)!important}
+.mt{margin-top:10px}.mt8{margin-top:8px}
+.lnk{color:var(--teal)}
+#qr{display:flex;justify-content:center;padding:10px}
+#qr svg{width:180px;height:180px}
+.qrcap{text-align:center;font-size:13px;color:#666}
+.qrcap.warn{color:var(--red);font-weight:700}
+footer{background:var(--teal);color:#fff;text-align:center;padding:22px;font-size:14px}
+.fab{position:fixed;right:16px;bottom:16px;z-index:9;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.noscript{background:#fff3cd;padding:12px;text-align:center}
+
+/* ---------- Formularios ---------- */
+.form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form label{display:flex;flex-direction:column;font-size:13px;font-weight:700;color:var(--teal);gap:4px}
+.form input,.form select{font:inherit;font-size:16px;padding:10px;border:1.5px solid #e5d3c2;border-radius:10px;background:#fff;color:var(--ink);min-width:0}
+.full{grid-column:1/-1}
+.btn.full{justify-content:center;margin-top:4px;width:100%}
+.msg{color:var(--red);font-size:14px;font-weight:600}
+.msg:empty{display:none}
+[hidden]{display:none!important}
+
+/* ---------- Carrito y hojas modales ---------- */
+.cartbar{position:fixed;left:0;right:0;bottom:0;z-index:8;padding:12px 16px;background:linear-gradient(transparent,rgba(0,0,0,.15))}
+.cartbar button{width:100%;max-width:520px;margin:0 auto;display:block;font:inherit;font-weight:800;font-size:17px;padding:15px;border:0;border-radius:14px;background:var(--red);color:#fff;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+body.hascart .fab{bottom:86px}
+body.hascart main{padding-bottom:100px}
+.panel{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:#fff;width:100%;max-width:560px;max-height:90vh;overflow:auto;border-radius:20px 20px 0 0;padding:20px;overscroll-behavior:contain}
+.sheethead{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.sheethead h2{font-family:var(--font-display);font-weight:400;color:var(--red)}
+.sheethead button{flex:none;border:0;background:#eee;width:36px;height:36px;border-radius:50%;font-size:16px;cursor:pointer}
+#cartList{list-style:none;margin:12px 0}
+#cartList li{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed #eee}
+#cartList li span{flex:1}
+#cartList li small{display:block;color:#666;font-size:13px}
+#cartList li em{font-style:normal;font-weight:700;color:var(--teal);white-space:nowrap}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--or);background:#fff;color:var(--or);font-weight:800;font-size:16px;cursor:pointer}
+.fee{font-size:14px;color:#666;text-align:right}
+.total{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;margin-bottom:14px;font-size:18px}
+.total small{width:100%;font-size:12px;color:#666}
+.optdesc{color:#666;font-size:14px;margin:4px 0 8px}
+.og{border:0;margin:12px 0}
+.og legend{font-weight:800;color:var(--teal);margin-bottom:6px}
+.og legend small{font-weight:600;color:#888;margin-left:6px}
+.ch{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1.5px solid #eee;border-radius:12px;margin-bottom:6px;cursor:pointer}
+.ch:has(input:checked){border-color:var(--or);background:#fff8f1}
+.ch input{width:20px;height:20px;accent-color:var(--or)}
+.ch span{flex:1}
+.ch em{font-style:normal;font-weight:700;color:var(--teal)}
+.ch.dis{opacity:.5}
+#optAdd{background:var(--red)}
+:focus-visible{outline:3px solid var(--or);outline-offset:2px}
+@media(max-width:480px){.form{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="hero">
+<img src="img/chilaquiles-1000.webp" alt="" srcset="img/chilaquiles-480.webp 480w, img/chilaquiles-1000.webp 1000w" sizes="100vw" width="1000" height="750" class="hero-bg" fetchpriority="high">
+<div class="brand">Lupita</div>
+<div class="ribbon">RESTAURANTE</div>
+<div id="status" class="status" aria-live="polite"></div>
+<p class="tag">“El desayuno es personal, no compartido”</p>
+<div class="price"><small>DESAYUNO COMPLETO</small>$220</div>
+<div class="cta">
+<a class="btn" href="https://wa.me/525553186277?text=Hola%20Lupita%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">WhatsApp 55 5318 6277</a>
+<a class="btn alt" href="https://www.google.com/maps/search/?api=1&amp;query=Hacienda+del+Rosario+199%2C+Prados+del+Rosario%2C+Azcapotzalco%2C+02410+CDMX" target="_blank" rel="noopener">Cómo llegar</a>
+</div></header>
+
+<nav aria-label="Secciones del menú"><a href="#empezar">Para empezar</a><a href="#huevos">Huevos</a><a href="#omelettes">Omelettes</a><a href="#mexicano">Más mexicano</a><a href="#tortas">Tortas</a><a href="#ligero">Ligero</a><a href="#sabado">Sábado</a><a href="#reservar">Reservar</a><a href="#visitanos">Visítanos</a></nav>
+
+<main>
+  <div class="note"><b>¿Cómo funciona?</b> Por <b>$220</b> eliges un platillo fuerte y te incluye todo lo de <i>Para empezar</i>. Toca <b>+</b> en cualquier platillo para armar tu pedido por WhatsApp.</div>
+
+  <div class="grid">
+<section class="card" id="empezar"><h2>Para empezar</h2>
+<ul><li><div class="nm">Jugo de cítricos</div></li><li><div class="nm">Café americano</div></li><li><div class="nm">Pan con mantequilla</div></li><li><div class="nm">Fruta de temporada</div></li><li><div class="nm">Jugo natural*</div></li></ul>
+</section>
+<section class="card order" id="huevos"><h2>Huevos</h2>
+<div class="cols"><ul><li data-item="huevos-fritos"><div class="nm">Fritos</div><button type="button" class="add" data-add="huevos-fritos" aria-label="Agregar Fritos">+</button></li><li data-item="huevos-en-torta"><div class="nm">En torta</div><button type="button" class="add" data-add="huevos-en-torta" aria-label="Agregar En torta">+</button></li><li data-item="huevos-al-albanil"><div class="nm">Al albañil</div><button type="button" class="add" data-add="huevos-al-albanil" aria-label="Agregar Al albañil">+</button></li><li data-item="huevos-rancheros"><div class="nm">Rancheros</div><button type="button" class="add" data-add="huevos-rancheros" aria-label="Agregar Rancheros">+</button></li><li data-item="huevos-divorciados"><div class="nm">Divorciados</div><button type="button" class="add" data-add="huevos-divorciados" aria-label="Agregar Divorciados">+</button></li><li data-item="huevos-a-la-mexicana"><div class="nm">A la mexicana</div><button type="button" class="add" data-add="huevos-a-la-mexicana" aria-label="Agregar A la mexicana">+</button></li><li data-item="huevos-con-jamon"><div class="nm">Con jamón</div><button type="button" class="add" data-add="huevos-con-jamon" aria-label="Agregar Con jamón">+</button></li><li data-item="huevos-con-tocino"><div class="nm">Con tocino</div><button type="button" class="add" data-add="huevos-con-tocino" aria-label="Agregar Con tocino">+</button></li><li data-item="huevos-con-salchicha"><div class="nm">Con salchicha</div><button type="button" class="add" data-add="huevos-con-salchicha" aria-label="Agregar Con salchicha">+</button></li><li data-item="huevos-con-chorizo"><div class="nm">Con chorizo</div><button type="button" class="add" data-add="huevos-con-chorizo" aria-label="Agregar Con chorizo">+</button></li></ul></div>
+</section>
+<section class="card order" id="omelettes"><h2>Omelettes</h2>
+<ul><li data-item="omelettes-poblano"><div class="nm"><b>Poblano</b><span>Rajas, elote y gratinado</span></div><button type="button" class="add" data-add="omelettes-poblano" aria-label="Agregar Poblano">+</button></li><li data-item="omelettes-vegetariano"><div class="nm"><b>Vegetariano</b><span>Espinaca y queso panela</span></div><button type="button" class="add" data-add="omelettes-vegetariano" aria-label="Agregar Vegetariano">+</button></li><li data-item="omelettes-ligero"><div class="nm"><b>Ligero</b><span>3 claras, queso panela y nopal</span></div><button type="button" class="add" data-add="omelettes-ligero" aria-label="Agregar Ligero">+</button></li><li data-item="omelettes-mexicano"><div class="nm"><b>Mexicano</b><span>Huitlacoche, cebolla y jalapeño</span></div><button type="button" class="add" data-add="omelettes-mexicano" aria-label="Agregar Mexicano">+</button></li><li data-item="omelettes-3-quesos"><div class="nm"><b>3 Quesos</b><span>Oaxaca, Gouda y Americano</span></div><button type="button" class="add" data-add="omelettes-3-quesos" aria-label="Agregar 3 Quesos">+</button></li><li data-item="omelettes-verduras"><div class="nm"><b>Verduras</b><span>Verduras y queso Oaxaca</span></div><button type="button" class="add" data-add="omelettes-verduras" aria-label="Agregar Verduras">+</button></li><li data-item="omelettes-creativo"><div class="nm"><b>Creativo</b><span>2 o 3 ingredientes a elegir</span></div><button type="button" class="add" data-add="omelettes-creativo" aria-label="Agregar Creativo">+</button></li><li data-item="omelettes-funghi"><div class="nm"><b>Funghi</b><span>Champiñones y queso Oaxaca</span></div><button type="button" class="add" data-add="omelettes-funghi" aria-label="Agregar Funghi">+</button></li></ul>
+</section>
+<section class="card order" id="mexicano"><h2>Más mexicano</h2>
+<ul><li data-item="mexicano-consome-de-pollo"><div class="nm">Consomé de pollo</div><button type="button" class="add" data-add="mexicano-consome-de-pollo" aria-label="Agregar Consomé de pollo">+</button></li><li data-item="mexicano-nopal-gratinado"><div class="nm">Nopal gratinado</div><button type="button" class="add" data-add="mexicano-nopal-gratinado" aria-label="Agregar Nopal gratinado">+</button></li><li data-item="mexicano-sopes-con-chorizo"><div class="nm">Sopes con chorizo</div><button type="button" class="add" data-add="mexicano-sopes-con-chorizo" aria-label="Agregar Sopes con chorizo">+</button></li><li data-item="mexicano-huarache-con-pollo"><div class="nm">Huarache con pollo</div><button type="button" class="add" data-add="mexicano-huarache-con-pollo" aria-label="Agregar Huarache con pollo">+</button></li><li data-item="mexicano-molletes"><div class="nm">Molletes</div><button type="button" class="add" data-add="mexicano-molletes" aria-label="Agregar Molletes">+</button></li><li data-item="mexicano-chilaquiles-verdes"><div class="nm">Chilaquiles verdes<span>Con pollo o bistec</span></div><button type="button" class="add" data-add="mexicano-chilaquiles-verdes" aria-label="Agregar Chilaquiles verdes">+</button></li><li data-item="mexicano-enchiladas"><div class="nm">Enchiladas<span>Verdes o rojas</span></div><button type="button" class="add" data-add="mexicano-enchiladas" aria-label="Agregar Enchiladas">+</button></li><li data-item="mexicano-pechuga-a-la-parrilla"><div class="nm">Pechuga a la parrilla</div><button type="button" class="add" data-add="mexicano-pechuga-a-la-parrilla" aria-label="Agregar Pechuga a la parrilla">+</button></li><li data-item="mexicano-bistec-a-la-mexicana"><div class="nm">Bistec a la mexicana</div><button type="button" class="add" data-add="mexicano-bistec-a-la-mexicana" aria-label="Agregar Bistec a la mexicana">+</button></li><li data-item="mexicano-queso-a-la-plancha"><div class="nm">Queso a la plancha</div><button type="button" class="add" data-add="mexicano-queso-a-la-plancha" aria-label="Agregar Queso a la plancha">+</button></li><li data-item="mexicano-enchiladas-de-mole"><div class="nm">Enchiladas de mole</div><button type="button" class="add" data-add="mexicano-enchiladas-de-mole" aria-label="Agregar Enchiladas de mole">+</button></li><li data-item="mexicano-enchiladas-verdes-con-huitlacoche"><div class="nm">Enchiladas verdes con huitlacoche</div><button type="button" class="add" data-add="mexicano-enchiladas-verdes-con-huitlacoche" aria-label="Agregar Enchiladas verdes con huitlacoche">+</button></li></ul>
+</section>
+<section class="card order" id="tortas"><h2>Tortas</h2>
+<div class="cols"><ul><li data-item="tortas-pollo"><div class="nm">Pollo</div><button type="button" class="add" data-add="tortas-pollo" aria-label="Agregar Pollo">+</button></li><li data-item="tortas-salchicha"><div class="nm">Salchicha</div><button type="button" class="add" data-add="tortas-salchicha" aria-label="Agregar Salchicha">+</button></li><li data-item="tortas-huevo"><div class="nm">Huevo</div><button type="button" class="add" data-add="tortas-huevo" aria-label="Agregar Huevo">+</button></li><li data-item="tortas-chorizo"><div class="nm">Chorizo</div><button type="button" class="add" data-add="tortas-chorizo" aria-label="Agregar Chorizo">+</button></li><li data-item="tortas-jamon"><div class="nm">Jamón</div><button type="button" class="add" data-add="tortas-jamon" aria-label="Agregar Jamón">+</button></li><li data-item="tortas-milanesa"><div class="nm">Milanesa</div><button type="button" class="add" data-add="tortas-milanesa" aria-label="Agregar Milanesa">+</button></li><li data-item="tortas-bistec"><div class="nm">Bistec</div><button type="button" class="add" data-add="tortas-bistec" aria-label="Agregar Bistec">+</button></li></ul></div>
+</section>
+<section class="card order" id="ligero"><h2>Algo más ligero</h2>
+<ul><li data-item="ligero-hot-cakes"><div class="nm">Hot cakes</div><button type="button" class="add" data-add="ligero-hot-cakes" aria-label="Agregar Hot cakes">+</button></li><li data-item="ligero-sincronizadas"><div class="nm">Sincronizadas</div><button type="button" class="add" data-add="ligero-sincronizadas" aria-label="Agregar Sincronizadas">+</button></li><li data-item="ligero-sandwich"><div class="nm">Sándwich<span>Pollo, atún, jamón o mixto</span></div><button type="button" class="add" data-add="ligero-sandwich" aria-label="Agregar Sándwich">+</button></li><li data-item="ligero-ensalada"><div class="nm">Ensalada<span>Pollo, atún o mixta</span></div><button type="button" class="add" data-add="ligero-ensalada" aria-label="Agregar Ensalada">+</button></li><li data-item="ligero-club-sandwich"><div class="nm">Club sándwich</div><button type="button" class="add" data-add="ligero-club-sandwich" aria-label="Agregar Club sándwich">+</button></li></ul>
+</section>
+<section class="card order" id="sabado"><h2>Menú de sábado</h2>
+<p class="catnote">Solo sábados</p>
+<ul><li data-item="sabado-pancita"><div class="nm">Pancita</div><button type="button" class="add" data-add="sabado-pancita" aria-label="Agregar Pancita">+</button></li><li data-item="sabado-chamorro"><div class="nm">Chamorro</div><button type="button" class="add" data-add="sabado-chamorro" aria-label="Agregar Chamorro">+</button></li></ul>
+</section>
+</div>
+
+  <div class="photos"><img src="img/desayuno-243.webp" alt="Desayuno completo con jugo, café, fruta y pan" width="243" height="244" loading="lazy" decoding="async"><img src="img/chilaquiles-1000.webp" alt="Chilaquiles verdes con bistec" srcset="img/chilaquiles-480.webp 480w, img/chilaquiles-1000.webp 1000w" sizes="(max-width:700px) 100vw, 320px" width="1000" height="750" loading="lazy" decoding="async"><img src="img/local-1000.webp" alt="Fachada de Lupita Restaurante" srcset="img/local-480.webp 480w, img/local-1000.webp 1000w" sizes="(max-width:700px) 100vw, 320px" width="1000" height="750" loading="lazy" decoding="async"></div>
+
+  <section class="card" id="reservar"><h2>Reserva tu mesa</h2>
+    <form id="resForm" class="form" onsubmit="event.preventDefault()">
+      <label>Nombre<input id="rName" required placeholder="Tu nombre" autocomplete="name"></label>
+      <label>Fecha<input id="rDate" type="date" required></label>
+      <label>Hora<select id="rTime"></select></label>
+      <label>Personas<select id="rPeople"></select></label>
+      <label class="full">Comentarios<input id="rNote" placeholder="Ej. cumpleaños, silla para bebé"></label>
+      <p id="rMsg" class="full msg" role="alert"></p>
+      <a id="rSend" class="btn full" href="#" target="_blank" rel="noopener">Enviar reservación por WhatsApp</a>
+    </form>
+  </section>
+
+  <div class="info" id="visitanos">
+    <section class="card"><h2>Horario</h2><table><tr><td>Lunes a viernes</td><td>8:00 – 16:00</td></tr><tr><td colspan="2" class="hnote">Desayunos 8:00–13:00 · Comida 13:00–16:00</td></tr><tr><td>Sábado</td><td>8:00 – 14:00</td></tr><tr><td>Domingo</td><td class="closed">Cerrado</td></tr><tr><td>Días festivos</td><td>8:00 – 14:00</td></tr></table></section>
+    <section class="card"><h2>Ubicación</h2>
+      <p>Hacienda del Rosario 199,<br>Prados del Rosario, Azcapotzalco,<br>02410, CDMX</p>
+      <p class="mt"><a href="https://www.google.com/maps/search/?api=1&amp;query=Hacienda+del+Rosario+199%2C+Prados+del+Rosario%2C+Azcapotzalco%2C+02410+CDMX" target="_blank" rel="noopener"><b class="lnk">Abrir en Google Maps →</b></a></p>
+      <p class="mt8">Tel / WhatsApp: <b>55 5318 6277</b></p>
+    </section>
+    <section class="card"><h2>Comparte el menú</h2>
+      <div id="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 41" shape-rendering="crispEdges" role="img" aria-label="Código QR"><rect width="100%" height="100%" fill="#ffffff"/><path d="M4,4h1v1h-1zM5,4h1v1h-1zM6,4h1v1h-1zM7,4h1v1h-1zM8,4h1v1h-1zM9,4h1v1h-1zM10,4h1v1h-1zM13,4h1v1h-1zM14,4h1v1h-1zM16,4h1v1h-1zM20,4h1v1h-1zM21,4h1v1h-1zM22,4h1v1h-1zM23,4h1v1h-1zM24,4h1v1h-1zM26,4h1v1h-1zM27,4h1v1h-1zM30,4h1v1h-1zM31,4h1v1h-1zM32,4h1v1h-1zM33,4h1v1h-1zM34,4h1v1h-1zM35,4h1v1h-1zM36,4h1v1h-1zM4,5h1v1h-1zM10,5h1v1h-1zM13,5h1v1h-1zM15,5h1v1h-1zM16,5h1v1h-1zM19,5h1v1h-1zM20,5h1v1h-1zM21,5h1v1h-1zM25,5h1v1h-1zM26,5h1v1h-1zM30,5h1v1h-1zM36,5h1v1h-1zM4,6h1v1h-1zM6,6h1v1h-1zM7,6h1v1h-1zM8,6h1v1h-1zM10,6h1v1h-1zM12,6h1v1h-1zM14,6h1v1h-1zM15,6h1v1h-1zM18,6h1v1h-1zM19,6h1v1h-1zM23,6h1v1h-1zM24,6h1v1h-1zM25,6h1v1h-1zM30,6h1v1h-1zM32,6h1v1h-1zM33,6h1v1h-1zM34,6h1v1h-1zM36,6h1v1h-1zM4,7h1v1h-1zM6,7h1v1h-1zM7,7h1v1h-1zM8,7h1v1h-1zM10,7h1v1h-1zM12,7h1v1h-1zM14,7h1v1h-1zM15,7h1v1h-1zM22,7h1v1h-1zM23,7h1v1h-1zM28,7h1v1h-1zM30,7h1v1h-1zM32,7h1v1h-1zM33,7h1v1h-1zM34,7h1v1h-1zM36,7h1v1h-1zM4,8h1v1h-1zM6,8h1v1h-1zM7,8h1v1h-1zM8,8h1v1h-1zM10,8h1v1h-1zM12,8h1v1h-1zM17,8h1v1h-1zM18,8h1v1h-1zM19,8h1v1h-1zM20,8h1v1h-1zM22,8h1v1h-1zM23,8h1v1h-1zM27,8h1v1h-1zM30,8h1v1h-1zM32,8h1v1h-1zM33,8h1v1h-1zM34,8h1v1h-1zM36,8h1v1h-1zM4,9h1v1h-1zM10,9h1v1h-1zM12,9h1v1h-1zM13,9h1v1h-1zM15,9h1v1h-1zM17,9h1v1h-1zM18,9h1v1h-1zM21,9h1v1h-1zM24,9h1v1h-1zM30,9h1v1h-1zM36,9h1v1h-1zM4,10h1v1h-1zM5,10h1v1h-1zM6,10h1v1h-1zM7,10h1v1h-1zM8,10h1v1h-1zM9,10h1v1h-1zM10,10h1v1h-1zM12,10h1v1h-1zM14,10h1v1h-1zM16,10h1v1h-1zM18,10h1v1h-1zM20,10h1v1h-1zM22,10h1v1h-1zM24,10h1v1h-1zM26,10h1v1h-1zM28,10h1v1h-1zM30,10h1v1h-1zM31,10h1v1h-1zM32,10h1v1h-1zM33,10h1v1h-1zM34,10h1v1h-1zM35,10h1v1h-1zM36,10h1v1h-1zM12,11h1v1h-1zM13,11h1v1h-1zM18,11h1v1h-1zM20,11h1v1h-1zM25,11h1v1h-1zM28,11h1v1h-1zM4,12h1v1h-1zM6,12h1v1h-1zM7,12h1v1h-1zM8,12h1v1h-1zM9,12h1v1h-1zM10,12h1v1h-1zM15,12h1v1h-1zM17,12h1v1h-1zM21,12h1v1h-1zM26,12h1v1h-1zM28,12h1v1h-1zM30,12h1v1h-1zM31,12h1v1h-1zM32,12h1v1h-1zM33,12h1v1h-1zM34,12h1v1h-1zM4,13h1v1h-1zM5,13h1v1h-1zM8,13h1v1h-1zM16,13h1v1h-1zM17,13h1v1h-1zM20,13h1v1h-1zM21,13h1v1h-1zM22,13h1v1h-1zM23,13h1v1h-1zM26,13h1v1h-1zM27,13h1v1h-1zM30,13h1v1h-1zM31,13h1v1h-1zM33,13h1v1h-1zM34,13h1v1h-1zM36,13h1v1h-1zM8,14h1v1h-1zM9,14h1v1h-1zM10,14h1v1h-1zM13,14h1v1h-1zM14,14h1v1h-1zM15,14h1v1h-1zM16,14h1v1h-1zM17,14h1v1h-1zM18,14h1v1h-1zM19,14h1v1h-1zM21,14h1v1h-1zM26,14h1v1h-1zM28,14h1v1h-1zM29,14h1v1h-1zM32,14h1v1h-1zM34,14h1v1h-1zM35,14h1v1h-1zM4,15h1v1h-1zM5,15h1v1h-1zM6,15h1v1h-1zM7,15h1v1h-1zM11,15h1v1h-1zM15,15h1v1h-1zM16,15h1v1h-1zM17,15h1v1h-1zM20,15h1v1h-1zM21,15h1v1h-1zM22,15h1v1h-1zM23,15h1v1h-1zM24,15h1v1h-1zM25,15h1v1h-1zM26,15h1v1h-1zM27,15h1v1h-1zM28,15h1v1h-1zM32,15h1v1h-1zM33,15h1v1h-1zM34,15h1v1h-1zM35,15h1v1h-1zM5,16h1v1h-1zM6,16h1v1h-1zM8,16h1v1h-1zM9,16h1v1h-1zM10,16h1v1h-1zM11,16h1v1h-1zM14,16h1v1h-1zM18,16h1v1h-1zM20,16h1v1h-1zM26,16h1v1h-1zM28,16h1v1h-1zM29,16h1v1h-1zM31,16h1v1h-1zM32,16h1v1h-1zM33,16h1v1h-1zM6,17h1v1h-1zM7,17h1v1h-1zM9,17h1v1h-1zM12,17h1v1h-1zM14,17h1v1h-1zM15,17h1v1h-1zM19,17h1v1h-1zM21,17h1v1h-1zM22,17h1v1h-1zM23,17h1v1h-1zM24,17h1v1h-1zM27,17h1v1h-1zM30,17h1v1h-1zM34,17h1v1h-1zM35,17h1v1h-1zM36,17h1v1h-1zM5,18h1v1h-1zM6,18h1v1h-1zM10,18h1v1h-1zM17,18h1v1h-1zM18,18h1v1h-1zM19,18h1v1h-1zM20,18h1v1h-1zM22,18h1v1h-1zM28,18h1v1h-1zM29,18h1v1h-1zM30,18h1v1h-1zM33,18h1v1h-1zM35,18h1v1h-1zM4,19h1v1h-1zM5,19h1v1h-1zM8,19h1v1h-1zM9,19h1v1h-1zM12,19h1v1h-1zM13,19h1v1h-1zM15,19h1v1h-1zM16,19h1v1h-1zM18,19h1v1h-1zM19,19h1v1h-1zM24,19h1v1h-1zM25,19h1v1h-1zM29,19h1v1h-1zM30,19h1v1h-1zM32,19h1v1h-1zM33,19h1v1h-1zM34,19h1v1h-1zM4,20h1v1h-1zM9,20h1v1h-1zM10,20h1v1h-1zM12,20h1v1h-1zM13,20h1v1h-1zM16,20h1v1h-1zM17,20h1v1h-1zM19,20h1v1h-1zM21,20h1v1h-1zM24,20h1v1h-1zM26,20h1v1h-1zM29,20h1v1h-1zM31,20h1v1h-1zM32,20h1v1h-1zM33,20h1v1h-1zM36,20h1v1h-1zM4,21h1v1h-1zM5,21h1v1h-1zM8,21h1v1h-1zM9,21h1v1h-1zM11,21h1v1h-1zM12,21h1v1h-1zM14,21h1v1h-1zM18,21h1v1h-1zM23,21h1v1h-1zM24,21h1v1h-1zM26,21h1v1h-1zM27,21h1v1h-1zM29,21h1v1h-1zM30,21h1v1h-1zM31,21h1v1h-1zM33,21h1v1h-1zM34,21h1v1h-1zM36,21h1v1h-1zM4,22h1v1h-1zM5,22h1v1h-1zM8,22h1v1h-1zM9,22h1v1h-1zM10,22h1v1h-1zM13,22h1v1h-1zM15,22h1v1h-1zM18,22h1v1h-1zM19,22h1v1h-1zM22,22h1v1h-1zM24,22h1v1h-1zM25,22h1v1h-1zM26,22h1v1h-1zM28,22h1v1h-1zM30,22h1v1h-1zM31,22h1v1h-1zM32,22h1v1h-1zM34,22h1v1h-1zM35,22h1v1h-1zM4,23h1v1h-1zM5,23h1v1h-1zM6,23h1v1h-1zM7,23h1v1h-1zM8,23h1v1h-1zM13,23h1v1h-1zM14,23h1v1h-1zM16,23h1v1h-1zM17,23h1v1h-1zM24,23h1v1h-1zM25,23h1v1h-1zM27,23h1v1h-1zM28,23h1v1h-1zM29,23h1v1h-1zM31,23h1v1h-1zM32,23h1v1h-1zM33,23h1v1h-1zM34,23h1v1h-1zM36,23h1v1h-1zM5,24h1v1h-1zM7,24h1v1h-1zM10,24h1v1h-1zM12,24h1v1h-1zM15,24h1v1h-1zM17,24h1v1h-1zM18,24h1v1h-1zM19,24h1v1h-1zM22,24h1v1h-1zM24,24h1v1h-1zM26,24h1v1h-1zM29,24h1v1h-1zM31,24h1v1h-1zM32,24h1v1h-1zM33,24h1v1h-1zM35,24h1v1h-1zM4,25h1v1h-1zM5,25h1v1h-1zM6,25h1v1h-1zM11,25h1v1h-1zM12,25h1v1h-1zM13,25h1v1h-1zM14,25h1v1h-1zM17,25h1v1h-1zM19,25h1v1h-1zM20,25h1v1h-1zM23,25h1v1h-1zM24,25h1v1h-1zM26,25h1v1h-1zM27,25h1v1h-1zM30,25h1v1h-1zM31,25h1v1h-1zM33,25h1v1h-1zM34,25h1v1h-1zM36,25h1v1h-1zM4,26h1v1h-1zM7,26h1v1h-1zM8,26h1v1h-1zM10,26h1v1h-1zM15,26h1v1h-1zM16,26h1v1h-1zM18,26h1v1h-1zM24,26h1v1h-1zM29,26h1v1h-1zM31,26h1v1h-1zM32,26h1v1h-1zM34,26h1v1h-1zM35,26h1v1h-1zM4,27h1v1h-1zM6,27h1v1h-1zM7,27h1v1h-1zM8,27h1v1h-1zM9,27h1v1h-1zM15,27h1v1h-1zM17,27h1v1h-1zM18,27h1v1h-1zM20,27h1v1h-1zM22,27h1v1h-1zM25,27h1v1h-1zM28,27h1v1h-1zM31,27h1v1h-1zM33,27h1v1h-1zM34,27h1v1h-1zM35,27h1v1h-1zM4,28h1v1h-1zM6,28h1v1h-1zM7,28h1v1h-1zM9,28h1v1h-1zM10,28h1v1h-1zM11,28h1v1h-1zM12,28h1v1h-1zM15,28h1v1h-1zM16,28h1v1h-1zM17,28h1v1h-1zM21,28h1v1h-1zM23,28h1v1h-1zM26,28h1v1h-1zM27,28h1v1h-1zM28,28h1v1h-1zM29,28h1v1h-1zM30,28h1v1h-1zM31,28h1v1h-1zM32,28h1v1h-1zM35,28h1v1h-1zM12,29h1v1h-1zM16,29h1v1h-1zM17,29h1v1h-1zM18,29h1v1h-1zM20,29h1v1h-1zM21,29h1v1h-1zM22,29h1v1h-1zM23,29h1v1h-1zM24,29h1v1h-1zM25,29h1v1h-1zM26,29h1v1h-1zM27,29h1v1h-1zM28,29h1v1h-1zM32,29h1v1h-1zM34,29h1v1h-1zM36,29h1v1h-1zM4,30h1v1h-1zM5,30h1v1h-1zM6,30h1v1h-1zM7,30h1v1h-1zM8,30h1v1h-1zM9,30h1v1h-1zM10,30h1v1h-1zM15,30h1v1h-1zM16,30h1v1h-1zM17,30h1v1h-1zM18,30h1v1h-1zM19,30h1v1h-1zM20,30h1v1h-1zM21,30h1v1h-1zM25,30h1v1h-1zM26,30h1v1h-1zM27,30h1v1h-1zM28,30h1v1h-1zM30,30h1v1h-1zM32,30h1v1h-1zM34,30h1v1h-1zM35,30h1v1h-1zM4,31h1v1h-1zM10,31h1v1h-1zM12,31h1v1h-1zM15,31h1v1h-1zM18,31h1v1h-1zM19,31h1v1h-1zM20,31h1v1h-1zM21,31h1v1h-1zM22,31h1v1h-1zM24,31h1v1h-1zM25,31h1v1h-1zM26,31h1v1h-1zM27,31h1v1h-1zM28,31h1v1h-1zM32,31h1v1h-1zM33,31h1v1h-1zM34,31h1v1h-1zM35,31h1v1h-1zM36,31h1v1h-1zM4,32h1v1h-1zM6,32h1v1h-1zM7,32h1v1h-1zM8,32h1v1h-1zM10,32h1v1h-1zM12,32h1v1h-1zM14,32h1v1h-1zM15,32h1v1h-1zM16,32h1v1h-1zM17,32h1v1h-1zM19,32h1v1h-1zM20,32h1v1h-1zM26,32h1v1h-1zM28,32h1v1h-1zM29,32h1v1h-1zM30,32h1v1h-1zM31,32h1v1h-1zM32,32h1v1h-1zM33,32h1v1h-1zM35,32h1v1h-1zM36,32h1v1h-1zM4,33h1v1h-1zM6,33h1v1h-1zM7,33h1v1h-1zM8,33h1v1h-1zM10,33h1v1h-1zM12,33h1v1h-1zM15,33h1v1h-1zM17,33h1v1h-1zM18,33h1v1h-1zM19,33h1v1h-1zM21,33h1v1h-1zM22,33h1v1h-1zM23,33h1v1h-1zM24,33h1v1h-1zM26,33h1v1h-1zM27,33h1v1h-1zM29,33h1v1h-1zM32,33h1v1h-1zM33,33h1v1h-1zM35,33h1v1h-1zM36,33h1v1h-1zM4,34h1v1h-1zM6,34h1v1h-1zM7,34h1v1h-1zM8,34h1v1h-1zM10,34h1v1h-1zM12,34h1v1h-1zM14,34h1v1h-1zM15,34h1v1h-1zM16,34h1v1h-1zM17,34h1v1h-1zM19,34h1v1h-1zM20,34h1v1h-1zM22,34h1v1h-1zM27,34h1v1h-1zM30,34h1v1h-1zM31,34h1v1h-1zM33,34h1v1h-1zM4,35h1v1h-1zM10,35h1v1h-1zM15,35h1v1h-1zM17,35h1v1h-1zM19,35h1v1h-1zM22,35h1v1h-1zM25,35h1v1h-1zM29,35h1v1h-1zM32,35h1v1h-1zM33,35h1v1h-1zM34,35h1v1h-1zM4,36h1v1h-1zM5,36h1v1h-1zM6,36h1v1h-1zM7,36h1v1h-1zM8,36h1v1h-1zM9,36h1v1h-1zM10,36h1v1h-1zM12,36h1v1h-1zM13,36h1v1h-1zM14,36h1v1h-1zM15,36h1v1h-1zM17,36h1v1h-1zM19,36h1v1h-1zM20,36h1v1h-1zM21,36h1v1h-1zM26,36h1v1h-1zM27,36h1v1h-1zM28,36h1v1h-1zM29,36h1v1h-1zM30,36h1v1h-1zM31,36h1v1h-1zM33,36h1v1h-1zM35,36h1v1h-1z" fill="#1a5f7a"/></svg></div>
+      <p class="qrcap">Escanea para ver este menú</p>
+    </section>
+  </div>
+</main>
+
+<div id="cartBar" class="cartbar" hidden><button id="cartOpen" type="button"></button></div>
+<div id="cartPanel" class="panel" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="sheethead"><h2 id="cartTitle">Tu pedido</h2><button id="cartClose" type="button" aria-label="Cerrar">✕</button></div>
+    <ul id="cartList"></ul>
+    <p id="cartFee" class="fee" hidden></p>
+    <div class="total">Total: <b id="cartTotal2">$0</b><small>Cada platillo incluye jugo, café, pan y fruta</small></div>
+    <div class="form">
+      <label>Nombre<input id="oName" placeholder="Tu nombre" autocomplete="name"></label>
+      <label>Entrega<select id="oType"><option>Para llevar (paso a recoger)</option><option>Comer en el restaurante</option><option>A domicilio</option></select></label>
+      <label class="full" id="oAddrWrap" hidden>Dirección<input id="oAddr" placeholder="Calle, número y colonia" autocomplete="street-address"></label>
+      <label class="full">Notas<input id="oNote" placeholder="Ej. sin cebolla, salsa aparte"></label>
+    </div>
+    <p id="oMsg" class="msg" role="alert"></p>
+    <a id="oSend" class="btn full" href="#" target="_blank" rel="noopener">Enviar pedido por WhatsApp</a>
+  </div>
+</div>
+<div id="optPanel" class="panel" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="optTitle">
+    <div class="sheethead"><h2 id="optTitle"></h2><button id="optClose" type="button" aria-label="Cerrar">✕</button></div>
+    <div id="optBody"></div>
+    <p id="optMsg" class="msg" role="alert"></p>
+    <button id="optAdd" type="button" class="btn full"></button>
+  </div>
+</div>
+
+<footer>Lupita Restaurante · Desayunos y comida casera en Azcapotzalco</footer>
+
+<a class="fab" href="https://wa.me/525553186277" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></a>
+
+<noscript><p class="noscript">Activa JavaScript para armar tu pedido. También puedes escribirnos por WhatsApp.</p></noscript>
+<script id="menu-data" type="application/json">{"name":"Lupita Restaurante","phone":"525553186277","tz":"America/Mexico_City","mode":"fixed","fixed":220,"week":[[],[[480,960]],[[480,960]],[[480,960]],[[480,960]],[[480,960]],[[480,840]]],"hol":{"h":[[480,840]],"d":["2026-11-16","2026-12-25","2027-01-01","2027-02-01","2027-03-15","2027-05-01","2027-09-16","2027-11-15","2027-12-25"]},"closed":[],"orders":{"on":true,"fee":0,"types":[{"l":"Para llevar (paso a recoger)","a":false},{"l":"Comer en el restaurante","a":false},{"l":"A domicilio","a":true}]},"res":{"on":true,"slot":30,"last":60,"lead":30,"ahead":60,"max":12},"items":{"huevos-fritos":{"n":"Huevos fritos","p":220},"huevos-en-torta":{"n":"Huevos en torta","p":220},"huevos-al-albanil":{"n":"Huevos al albañil","p":220},"huevos-rancheros":{"n":"Huevos rancheros","p":220},"huevos-divorciados":{"n":"Huevos divorciados","p":220},"huevos-a-la-mexicana":{"n":"Huevos a la mexicana","p":220},"huevos-con-jamon":{"n":"Huevos con jamón","p":220},"huevos-con-tocino":{"n":"Huevos con tocino","p":220},"huevos-con-salchicha":{"n":"Huevos con salchicha","p":220},"huevos-con-chorizo":{"n":"Huevos con chorizo","p":220},"omelettes-poblano":{"n":"Omelette Poblano","p":220},"omelettes-vegetariano":{"n":"Omelette Vegetariano","p":220},"omelettes-ligero":{"n":"Omelette Ligero","p":220},"omelettes-mexicano":{"n":"Omelette Mexicano","p":220},"omelettes-3-quesos":{"n":"Omelette 3 Quesos","p":220},"omelettes-verduras":{"n":"Omelette Verduras","p":220},"omelettes-creativo":{"n":"Omelette Creativo","p":220},"omelettes-funghi":{"n":"Omelette Funghi","p":220},"mexicano-consome-de-pollo":{"n":"Consomé de pollo","p":220},"mexicano-nopal-gratinado":{"n":"Nopal gratinado","p":220},"mexicano-sopes-con-chorizo":{"n":"Sopes con chorizo","p":220},"mexicano-huarache-con-pollo":{"n":"Huarache con pollo","p":220},"mexicano-molletes":{"n":"Molletes","p":220},"mexicano-chilaquiles-verdes":{"n":"Chilaquiles verdes","p":220,"o":[{"n":"Proteína","t":"single","r":true,"min":0,"max":1,"c":[{"n":"Pollo","p":0},{"n":"Bistec","p":0}]}]},"mexicano-enchiladas":{"n":"Enchiladas","p":220,"o":[{"n":"Salsa","t":"single","r":true,"min":0,"max":1,"c":[{"n":"Verdes","p":0},{"n":"Rojas","p":0}]}]},"mexicano-pechuga-a-la-parrilla":{"n":"Pechuga a la parrilla","p":220},"mexicano-bistec-a-la-mexicana":{"n":"Bistec a la mexicana","p":220},"mexicano-queso-a-la-plancha":{"n":"Queso a la plancha","p":220},"mexicano-enchiladas-de-mole":{"n":"Enchiladas de mole","p":220},"mexicano-enchiladas-verdes-con-huitlacoche":{"n":"Enchiladas verdes con huitlacoche","p":220},"tortas-pollo":{"n":"Torta de pollo","p":220},"tortas-salchicha":{"n":"Torta de salchicha","p":220},"tortas-huevo":{"n":"Torta de huevo","p":220},"tortas-chorizo":{"n":"Torta de chorizo","p":220},"tortas-jamon":{"n":"Torta de jamón","p":220},"tortas-milanesa":{"n":"Torta de milanesa","p":220},"tortas-bistec":{"n":"Torta de bistec","p":220},"ligero-hot-cakes":{"n":"Hot cakes","p":220},"ligero-sincronizadas":{"n":"Sincronizadas","p":220},"ligero-sandwich":{"n":"Sándwich","p":220,"o":[{"n":"Tipo","t":"single","r":true,"min":0,"max":1,"c":[{"n":"Pollo","p":0},{"n":"Atún","p":0},{"n":"Jamón","p":0},{"n":"Mixto","p":0}]}]},"ligero-ensalada":{"n":"Ensalada","p":220,"o":[{"n":"Tipo","t":"single","r":true,"min":0,"max":1,"c":[{"n":"Pollo","p":0},{"n":"Atún","p":0},{"n":"Mixta","p":0}]}]},"ligero-club-sandwich":{"n":"Club sándwich","p":220},"sabado-pancita":{"n":"Pancita","p":220,"a":{"d":[6]}},"sabado-chamorro":{"n":"Chamorro","p":220,"a":{"d":[6]}}},"url":"https://torrezzzzdev.github.io/factor-digital/lupita/","preview":false}</script>
+<script>/* Menú digital: lógica genérica. Todos los datos vienen de <script id="menu-data"> (generado desde config.json).
+   ES5 sin dependencias. Secciones: utilidades, horario, disponibilidad, carrito, opciones, pedido, reservaciones. */
+(function(){
+"use strict";
+var D = JSON.parse(document.getElementById("menu-data").textContent);
+var $ = function(id){ return document.getElementById(id); };
+var each = function(list, fn){ Array.prototype.forEach.call(list, fn); };
+var NAMES = ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+var DAY = 864e5;
+
+/* ---------- Utilidades ---------- */
+function pad(n){ return ("0" + n).slice(-2); }
+function money(n){ return "$" + n.toLocaleString("es-MX", {maximumFractionDigits: 2}); }
+function fmt(m){ var h = Math.floor(m/60), mm = m%60; return (h>12?h-12:h) + (mm?":"+pad(mm):"") + (h>=12?" pm":" am"); }
+function el(tag, cls, text){ var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+/* ---------- Fecha y hora en la zona del restaurante ----------
+   Las fechas se manejan como medianoche UTC del día local (evita desfases por zona horaria). */
+function now(){
+  var o = {};
+  new Intl.DateTimeFormat("en-US", {timeZone: D.tz, year:"numeric", month:"2-digit", day:"2-digit",
+    hour:"numeric", minute:"numeric", hour12:false}).formatToParts(new Date()).forEach(function(x){ o[x.type] = x.value; });
+  return {date: Date.UTC(+o.year, +o.month - 1, +o.day), m: (parseInt(o.hour,10)%24)*60 + parseInt(o.minute,10)};
+}
+function key(t){ var d = new Date(t); return d.getUTCFullYear() + "-" + pad(d.getUTCMonth()+1) + "-" + pad(d.getUTCDate()); }
+function parseKey(s){ var p = s.split("-"); return Date.UTC(+p[0], +p[1]-1, +p[2]); }
+function wd(t){ return new Date(t).getUTCDay(); }
+function dm(t){ var d = new Date(t); return d.getUTCDate() + "/" + (d.getUTCMonth()+1); }
+function hoursOn(t){
+  var k = key(t);
+  if (D.closed.indexOf(k) >= 0) return [];
+  if (D.hol.d.indexOf(k) >= 0) return D.hol.h;
+  return D.week[wd(t)];
+}
+
+/* ---------- Abierto / cerrado ---------- */
+function status(){
+  var s = $("status"); if (!s) return;
+  var n = now(), r = hoursOn(n.date), i, txt = null;
+  for (i = 0; i < r.length; i++) if (n.m >= r[i][0] && n.m < r[i][1]) {
+    s.className = "status"; s.innerHTML = "<i></i>Abierto ahora · cierra a las " + fmt(r[i][1]); return;
+  }
+  for (i = 0; i < r.length; i++) if (n.m < r[i][0]) { txt = "abre hoy a las " + fmt(r[i][0]); break; }
+  if (!txt) for (var k = 1; k <= 14; k++) {
+    var t = n.date + k*DAY, h = hoursOn(t);
+    if (h.length) { txt = "abre " + (k === 1 ? "mañana" : k < 7 ? "el " + NAMES[wd(t)] : "el " + dm(t)) + " a las " + fmt(h[0][0]); break; }
+  }
+  s.className = "status off"; s.innerHTML = "<i></i>Cerrado" + (txt ? " · " + txt : "");
+}
+
+/* ---------- Disponibilidad de platillos ---------- */
+function availableNow(it){
+  if (it.x) return false;
+  var a = it.a; if (!a) return true;
+  var n = now();
+  if (a.d && a.d.indexOf(wd(n.date)) < 0) return false;
+  if (a.f != null && (n.m < a.f || n.m >= a.t)) return false;
+  return true;
+}
+function refreshAvail(){
+  each(document.querySelectorAll("[data-add]"), function(b){
+    var it = D.items[b.getAttribute("data-add")], ok = availableNow(it);
+    b.disabled = !ok; b.title = ok ? "" : (it.x ? "Agotado" : "No disponible en este momento");
+    b.parentNode.classList.toggle("na", !ok);
+  });
+}
+
+/* ---------- Hojas modales (Esc para cerrar, foco atrapado) ---------- */
+var openPanel = null, lastFocus = null;
+function openP(p){
+  lastFocus = document.activeElement; p.hidden = false; openPanel = p;
+  document.body.classList.add("lock");
+  var f = p.querySelector("button"); if (f) f.focus();
+}
+function closeP(p){
+  p.hidden = true;
+  if (openPanel === p) { openPanel = null; document.body.classList.remove("lock"); if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+}
+document.addEventListener("keydown", function(e){
+  if (!openPanel) return;
+  if (e.key === "Escape") { closeP(openPanel); return; }
+  if (e.key !== "Tab") return;
+  var list = [].filter.call(openPanel.querySelectorAll("button:not([disabled]),input:not([disabled]),select,a[href]"),
+    function(x){ return x.offsetParent !== null; });
+  if (!list.length) return;
+  var first = list[0], last = list[list.length-1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+});
+
+if (!$("cartBar")) { status(); setInterval(status, 60000); initReservations(); return; }
+
+/* ---------- Carrito ----------
+   cart = [{k: clave única, id: platillo, sel: [[índices elegidos por grupo]], q: cantidad}] */
+var cart = [];
+function line(l){
+  var it = D.items[l.id], unit = it.p, parts = [];
+  (it.o || []).forEach(function(g, gi){
+    var s = l.sel[gi] || [];
+    s.forEach(function(ci){ unit += g.c[ci].p; });
+    if (s.length) parts.push(s.map(function(ci){ return (g.t === "multi" ? "+ " : "") + g.c[ci].n; }).join(", "));
+  });
+  return {unit: unit, label: it.n + (parts.length ? " (" + parts.join("; ") + ")" : "")};
+}
+function count(){ var c = 0; cart.forEach(function(l){ c += l.q; }); return c; }
+function subtotal(){ var s = 0; cart.forEach(function(l){ s += l.q * line(l).unit; }); return s; }
+function showLinePrices(){
+  if (D.mode === "per_item") return true;
+  return cart.some(function(l){ return line(l).unit !== D.fixed; });
+}
+function currentType(){ return D.orders.types[$("oType").selectedIndex] || {}; }
+function fee(){ return count() && currentType().a ? (D.orders.fee || 0) : 0; }
+function addLine(id, sel){
+  var k = id + "|" + JSON.stringify(sel);
+  for (var i = 0; i < cart.length; i++) if (cart[i].k === k) { cart[i].q++; render(); return; }
+  cart.push({k: k, id: id, sel: sel, q: 1}); render();
+}
+
+function render(){
+  var c = count(), qty = {};
+  cart.forEach(function(l){ qty[l.id] = (qty[l.id] || 0) + l.q; });
+  each(document.querySelectorAll("[data-add]"), function(b){
+    var q = qty[b.getAttribute("data-add")] || 0;
+    b.classList.toggle("has", !!q);
+    b.innerHTML = q ? "<span class='q'>" + q + "</span>" : "+";
+  });
+  $("cartBar").hidden = !c; document.body.classList.toggle("hascart", !!c);
+  $("cartOpen").innerHTML = "Ver pedido · " + c + (c === 1 ? " platillo" : " platillos") + " · <b>" + money(subtotal()) + "</b>";
+  var f = fee();
+  $("cartFee").hidden = !f; $("cartFee").textContent = f ? "Envío: " + money(f) : "";
+  $("cartTotal2").textContent = money(subtotal() + f);
+  var ul = $("cartList"), prices = showLinePrices(); ul.innerHTML = "";
+  cart.forEach(function(l){
+    var info = line(l), li = el("li"), sp = el("span", null, info.label);
+    if (prices) sp.appendChild(el("small", null, money(info.unit) + " c/u"));
+    var qd = el("div", "qty"), minus = el("button", null, "−"), plus = el("button", null, "+");
+    minus.type = plus.type = "button";
+    minus.setAttribute("aria-label", "Quitar uno"); plus.setAttribute("aria-label", "Agregar uno");
+    minus.onclick = function(){ if (--l.q <= 0) cart.splice(cart.indexOf(l), 1); render(); if (!count()) closeP($("cartPanel")); };
+    plus.onclick = function(){ l.q++; render(); };
+    qd.appendChild(minus); qd.appendChild(el("b", null, l.q)); qd.appendChild(plus);
+    li.appendChild(sp); li.appendChild(qd);
+    if (prices) li.appendChild(el("em", null, money(info.unit * l.q)));
+    ul.appendChild(li);
+  });
+  orderLink();
+}
+
+/* ---------- Opciones (variantes y complementos) ---------- */
+var optItem = null;
+function groupHint(g){
+  if (g.t === "single") return g.r ? "Elige 1" : "Opcional";
+  var mn = Math.max(g.min, g.r ? 1 : 0);
+  if (mn && mn === g.max) return "Elige " + mn;
+  if (mn) return "Elige de " + mn + " a " + g.max;
+  return "Opcional · hasta " + g.max;
+}
+function readSel(){
+  var sel = [];
+  D.items[optItem].o.forEach(function(g, gi){
+    var s = [];
+    each($("optBody").querySelectorAll("input[data-g='" + gi + "']"), function(inp){ if (inp.checked) s.push(+inp.value); });
+    sel.push(s);
+  });
+  return sel;
+}
+function updateOpt(){
+  var it = D.items[optItem], sel = readSel();
+  it.o.forEach(function(g, gi){
+    if (g.t !== "multi") return;
+    var full = sel[gi].length >= g.max;
+    each($("optBody").querySelectorAll("input[data-g='" + gi + "']"), function(inp){
+      inp.disabled = full && !inp.checked; inp.parentNode.classList.toggle("dis", inp.disabled);
+    });
+  });
+  $("optAdd").textContent = "Agregar · " + money(line({id: optItem, sel: sel}).unit);
+  $("optMsg").textContent = "";
+}
+function openOptions(id){
+  var it = D.items[id], body = $("optBody"), li = document.querySelector("[data-item='" + id + "']");
+  optItem = id; body.innerHTML = "";
+  $("optTitle").textContent = li ? li.querySelector(".nm").firstChild.textContent : it.n;
+  var desc = li && li.querySelector(".nm span");
+  if (desc) body.appendChild(el("p", "optdesc", desc.textContent));
+  it.o.forEach(function(g, gi){
+    var fs = el("fieldset", "og"), lg = el("legend", null, g.n);
+    lg.appendChild(el("small", null, groupHint(g))); fs.appendChild(lg);
+    g.c.forEach(function(c, ci){
+      var lab = el("label", "ch"), inp = el("input");
+      inp.type = g.t === "single" ? "radio" : "checkbox"; inp.name = "g" + gi; inp.value = ci; inp.setAttribute("data-g", gi);
+      inp.onchange = updateOpt;
+      lab.appendChild(inp); lab.appendChild(el("span", null, c.n));
+      if (c.p) lab.appendChild(el("em", null, "+" + money(c.p)));
+      fs.appendChild(lab);
+    });
+    body.appendChild(fs);
+  });
+  updateOpt(); openP($("optPanel"));
+}
+$("optAdd").onclick = function(){
+  var it = D.items[optItem], sel = readSel(), msg = "";
+  it.o.forEach(function(g, gi){
+    if (msg) return;
+    var mn = g.t === "single" ? (g.r ? 1 : 0) : Math.max(g.min, g.r ? 1 : 0);
+    if (sel[gi].length < mn) msg = mn === 1 ? "Elige " + g.n.toLowerCase() + "." : "Elige al menos " + mn + " en " + g.n.toLowerCase() + ".";
+  });
+  if (msg) { $("optMsg").textContent = msg; return; }
+  closeP($("optPanel")); addLine(optItem, sel);
+};
+$("optClose").onclick = function(){ closeP($("optPanel")); };
+$("optPanel").onclick = function(e){ if (e.target === this) closeP(this); };
+
+each(document.querySelectorAll("[data-add]"), function(b){
+  b.onclick = function(){
+    var id = b.getAttribute("data-add"), it = D.items[id];
+    if (!availableNow(it)) return;
+    if (it.o && it.o.length) openOptions(id); else addLine(id, []);
+  };
+});
+
+/* ---------- Mensaje de pedido por WhatsApp ---------- */
+function orderLink(){
+  var lines = ["*Pedido – " + D.name + "*", ""], prices = showLinePrices(), c = count(), f = fee();
+  cart.forEach(function(l){ var i = line(l); lines.push("• " + l.q + " x " + i.label + (prices ? " – " + money(i.unit * l.q) : "")); });
+  lines.push("");
+  if (!prices && !f) lines.push("Total: " + money(subtotal()) + " (" + c + " x " + money(D.fixed) + ")");
+  else {
+    if (f) { lines.push("Subtotal: " + money(subtotal())); lines.push("Envío: " + money(f)); }
+    lines.push("Total: " + money(subtotal() + f));
+  }
+  var name = $("oName").value.trim(), type = $("oType").value, addr = $("oAddr").value.trim(), note = $("oNote").value.trim();
+  if (name) lines.push("Nombre: " + name);
+  lines.push("Entrega: " + type);
+  if (currentType().a && addr) lines.push("Dirección: " + addr);
+  if (note) lines.push("Notas: " + note);
+  $("oSend").href = "https://wa.me/" + D.phone + "?text=" + encodeURIComponent(lines.join("\n"));
+}
+$("oType").onchange = function(){ $("oAddrWrap").hidden = !currentType().a; render(); };
+["oName","oAddr","oNote"].forEach(function(id){ $(id).oninput = orderLink; });
+$("oSend").onclick = function(e){
+  var msg = "";
+  if (!count()) msg = "Agrega al menos un platillo.";
+  else if (!$("oName").value.trim()) msg = "Escribe tu nombre.";
+  else if (currentType().a && !$("oAddr").value.trim()) msg = "Escribe la dirección de entrega.";
+  $("oMsg").textContent = msg; if (msg) e.preventDefault();
+};
+$("cartOpen").onclick = function(){ openP($("cartPanel")); };
+$("cartClose").onclick = function(){ closeP($("cartPanel")); };
+$("cartPanel").onclick = function(e){ if (e.target === this) closeP(this); };
+
+/* ---------- Reservaciones ---------- */
+function initReservations(){
+  var rd = $("rDate"); if (!D.res.on || !rd) return;
+  var n0 = now();
+  rd.min = key(n0.date); rd.max = key(n0.date + D.res.ahead * DAY);
+  for (var i = 1; i <= D.res.max; i++) $("rPeople").appendChild(el("option", null, i + (i === D.res.max ? "+" : "")));
+  if (D.res.max >= 2) $("rPeople").value = "2";
+  function validDate(){ return rd.value && rd.value >= rd.min && rd.value <= rd.max; }
+  function fillTimes(){
+    var sel = $("rTime"), n = now(), slots = [];
+    sel.innerHTML = "";
+    if (!validDate()) { sel.appendChild(el("option", null, rd.value ? "Fecha fuera de rango" : "Elige una fecha")).value = ""; return; }
+    var t = parseKey(rd.value), h = hoursOn(t), today = t === n.date;
+    if (!h.length) { sel.appendChild(el("option", null, "Cerrado ese día")).value = ""; return; }
+    h.forEach(function(r){
+      for (var m = r[0]; m <= r[1] - D.res.last; m += D.res.slot) if (!today || m >= n.m + D.res.lead) slots.push(m);
+    });
+    if (!slots.length) { sel.appendChild(el("option", null, "Sin horarios disponibles")).value = ""; return; }
+    slots.forEach(function(m){ sel.appendChild(el("option", null, fmt(m))); });
+  }
+  function resLink(){
+    var fecha = validDate() ? (function(t){ return NAMES[wd(t)] + " " + dm(t); })(parseKey(rd.value)) : "";
+    var lines = ["*Reservación – " + D.name + "*", "", "Nombre: " + $("rName").value.trim(), "Fecha: " + fecha,
+      "Hora: " + $("rTime").value, "Personas: " + $("rPeople").value];
+    if ($("rNote").value.trim()) lines.push("Comentarios: " + $("rNote").value.trim());
+    $("rSend").href = "https://wa.me/" + D.phone + "?text=" + encodeURIComponent(lines.join("\n"));
+  }
+  rd.onchange = function(){ fillTimes(); resLink(); };
+  ["rName","rNote"].forEach(function(id){ $(id).oninput = resLink; });
+  ["rTime","rPeople"].forEach(function(id){ $(id).onchange = resLink; });
+  fillTimes(); resLink();
+  $("rSend").onclick = function(e){
+    resLink();
+    var msg = "";
+    if (!$("rName").value.trim()) msg = "Escribe tu nombre.";
+    else if (!rd.value) msg = "Elige una fecha.";
+    else if (!validDate()) msg = "Elige una fecha entre hoy y los próximos " + D.res.ahead + " días.";
+    else if (!$("rTime").value) msg = $("rTime").options[0].textContent === "Cerrado ese día" ? "Ese día está cerrado, elige otra fecha." : "No quedan horarios ese día, elige otra fecha.";
+    $("rMsg").textContent = msg; if (msg) e.preventDefault();
+  };
+}
+
+/* ---------- Inicio ---------- */
+status(); refreshAvail(); render(); initReservations();
+setInterval(function(){ status(); refreshAvail(); }, 60000);
+})();
+</script>
+</body>
+</html>

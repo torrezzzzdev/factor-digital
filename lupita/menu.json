@@ -1,0 +1,370 @@
+{
+ "name": "Lupita Restaurante",
+ "phone": "525553186277",
+ "tz": "America/Mexico_City",
+ "mode": "fixed",
+ "fixed": 220,
+ "week": [
+  [],
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    840
+   ]
+  ]
+ ],
+ "hol": {
+  "h": [
+   [
+    480,
+    840
+   ]
+  ],
+  "d": [
+   "2026-11-16",
+   "2026-12-25",
+   "2027-01-01",
+   "2027-02-01",
+   "2027-03-15",
+   "2027-05-01",
+   "2027-09-16",
+   "2027-11-15",
+   "2027-12-25"
+  ]
+ },
+ "closed": [],
+ "orders": {
+  "on": true,
+  "fee": 0,
+  "types": [
+   {
+    "l": "Para llevar (paso a recoger)",
+    "a": false
+   },
+   {
+    "l": "Comer en el restaurante",
+    "a": false
+   },
+   {
+    "l": "A domicilio",
+    "a": true
+   }
+  ]
+ },
+ "res": {
+  "on": true,
+  "slot": 30,
+  "last": 60,
+  "lead": 30,
+  "ahead": 60,
+  "max": 12
+ },
+ "items": {
+  "huevos-fritos": {
+   "n": "Huevos fritos",
+   "p": 220
+  },
+  "huevos-en-torta": {
+   "n": "Huevos en torta",
+   "p": 220
+  },
+  "huevos-al-albanil": {
+   "n": "Huevos al albañil",
+   "p": 220
+  },
+  "huevos-rancheros": {
+   "n": "Huevos rancheros",
+   "p": 220
+  },
+  "huevos-divorciados": {
+   "n": "Huevos divorciados",
+   "p": 220
+  },
+  "huevos-a-la-mexicana": {
+   "n": "Huevos a la mexicana",
+   "p": 220
+  },
+  "huevos-con-jamon": {
+   "n": "Huevos con jamón",
+   "p": 220
+  },
+  "huevos-con-tocino": {
+   "n": "Huevos con tocino",
+   "p": 220
+  },
+  "huevos-con-salchicha": {
+   "n": "Huevos con salchicha",
+   "p": 220
+  },
+  "huevos-con-chorizo": {
+   "n": "Huevos con chorizo",
+   "p": 220
+  },
+  "omelettes-poblano": {
+   "n": "Omelette Poblano",
+   "p": 220
+  },
+  "omelettes-vegetariano": {
+   "n": "Omelette Vegetariano",
+   "p": 220
+  },
+  "omelettes-ligero": {
+   "n": "Omelette Ligero",
+   "p": 220
+  },
+  "omelettes-mexicano": {
+   "n": "Omelette Mexicano",
+   "p": 220
+  },
+  "omelettes-3-quesos": {
+   "n": "Omelette 3 Quesos",
+   "p": 220
+  },
+  "omelettes-verduras": {
+   "n": "Omelette Verduras",
+   "p": 220
+  },
+  "omelettes-creativo": {
+   "n": "Omelette Creativo",
+   "p": 220
+  },
+  "omelettes-funghi": {
+   "n": "Omelette Funghi",
+   "p": 220
+  },
+  "mexicano-consome-de-pollo": {
+   "n": "Consomé de pollo",
+   "p": 220
+  },
+  "mexicano-nopal-gratinado": {
+   "n": "Nopal gratinado",
+   "p": 220
+  },
+  "mexicano-sopes-con-chorizo": {
+   "n": "Sopes con chorizo",
+   "p": 220
+  },
+  "mexicano-huarache-con-pollo": {
+   "n": "Huarache con pollo",
+   "p": 220
+  },
+  "mexicano-molletes": {
+   "n": "Molletes",
+   "p": 220
+  },
+  "mexicano-chilaquiles-verdes": {
+   "n": "Chilaquiles verdes",
+   "p": 220,
+   "o": [
+    {
+     "n": "Proteína",
+     "t": "single",
+     "r": true,
+     "min": 0,
+     "max": 1,
+     "c": [
+      {
+       "n": "Pollo",
+       "p": 0
+      },
+      {
+       "n": "Bistec",
+       "p": 0
+      }
+     ]
+    }
+   ]
+  },
+  "mexicano-enchiladas": {
+   "n": "Enchiladas",
+   "p": 220,
+   "o": [
+    {
+     "n": "Salsa",
+     "t": "single",
+     "r": true,
+     "min": 0,
+     "max": 1,
+     "c": [
+      {
+       "n": "Verdes",
+       "p": 0
+      },
+      {
+       "n": "Rojas",
+       "p": 0
+      }
+     ]
+    }
+   ]
+  },
+  "mexicano-pechuga-a-la-parrilla": {
+   "n": "Pechuga a la parrilla",
+   "p": 220
+  },
+  "mexicano-bistec-a-la-mexicana": {
+   "n": "Bistec a la mexicana",
+   "p": 220
+  },
+  "mexicano-queso-a-la-plancha": {
+   "n": "Queso a la plancha",
+   "p": 220
+  },
+  "mexicano-enchiladas-de-mole": {
+   "n": "Enchiladas de mole",
+   "p": 220
+  },
+  "mexicano-enchiladas-verdes-con-huitlacoche": {
+   "n": "Enchiladas verdes con huitlacoche",
+   "p": 220
+  },
+  "tortas-pollo": {
+   "n": "Torta de pollo",
+   "p": 220
+  },
+  "tortas-salchicha": {
+   "n": "Torta de salchicha",
+   "p": 220
+  },
+  "tortas-huevo": {
+   "n": "Torta de huevo",
+   "p": 220
+  },
+  "tortas-chorizo": {
+   "n": "Torta de chorizo",
+   "p": 220
+  },
+  "tortas-jamon": {
+   "n": "Torta de jamón",
+   "p": 220
+  },
+  "tortas-milanesa": {
+   "n": "Torta de milanesa",
+   "p": 220
+  },
+  "tortas-bistec": {
+   "n": "Torta de bistec",
+   "p": 220
+  },
+  "ligero-hot-cakes": {
+   "n": "Hot cakes",
+   "p": 220
+  },
+  "ligero-sincronizadas": {
+   "n": "Sincronizadas",
+   "p": 220
+  },
+  "ligero-sandwich": {
+   "n": "Sándwich",
+   "p": 220,
+   "o": [
+    {
+     "n": "Tipo",
+     "t": "single",
+     "r": true,
+     "min": 0,
+     "max": 1,
+     "c": [
+      {
+       "n": "Pollo",
+       "p": 0
+      },
+      {
+       "n": "Atún",
+       "p": 0
+      },
+      {
+       "n": "Jamón",
+       "p": 0
+      },
+      {
+       "n": "Mixto",
+       "p": 0
+      }
+     ]
+    }
+   ]
+  },
+  "ligero-ensalada": {
+   "n": "Ensalada",
+   "p": 220,
+   "o": [
+    {
+     "n": "Tipo",
+     "t": "single",
+     "r": true,
+     "min": 0,
+     "max": 1,
+     "c": [
+      {
+       "n": "Pollo",
+       "p": 0
+      },
+      {
+       "n": "Atún",
+       "p": 0
+      },
+      {
+       "n": "Mixta",
+       "p": 0
+      }
+     ]
+    }
+   ]
+  },
+  "ligero-club-sandwich": {
+   "n": "Club sándwich",
+   "p": 220
+  },
+  "sabado-pancita": {
+   "n": "Pancita",
+   "p": 220,
+   "a": {
+    "d": [
+     6
+    ]
+   }
+  },
+  "sabado-chamorro": {
+   "n": "Chamorro",
+   "p": 220,
+   "a": {
+    "d": [
+     6
+    ]
+   }
+  }
+ },
+ "url": "https://torrezzzzdev.github.io/factor-digital/lupita/",
+ "preview": false
+}

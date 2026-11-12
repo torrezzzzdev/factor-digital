@@ -1,0 +1,287 @@
+{
+ "name": "Café Aurora (demo)",
+ "phone": "525500000002",
+ "tz": "America/Mexico_City",
+ "mode": "per_item",
+ "fixed": null,
+ "week": [
+  [
+   [
+    540,
+    840
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ]
+ ],
+ "hol": {
+  "h": [],
+  "d": [
+   "2026-11-16",
+   "2026-12-25",
+   "2027-01-01"
+  ]
+ },
+ "closed": [],
+ "orders": {
+  "on": true,
+  "fee": 0,
+  "types": [
+   {
+    "l": "Para llevar",
+    "a": false
+   },
+   {
+    "l": "Comer aquí",
+    "a": false
+   }
+  ]
+ },
+ "res": {
+  "on": true,
+  "slot": 60,
+  "last": 60,
+  "lead": 60,
+  "ahead": 30,
+  "max": 6
+ },
+ "items": {
+  "americano": {
+   "n": "Americano",
+   "p": 40,
+   "o": [
+    {
+     "n": "Tamaño",
+     "t": "single",
+     "r": true,
+     "min": 0,
+     "max": 1,
+     "c": [
+      {
+       "n": "Chico",
+       "p": 0
+      },
+      {
+       "n": "Grande",
+       "p": 10
+      }
+     ]
+    }
+   ]
+  },
+  "latte": {
+   "n": "Latte",
+   "p": 55,
+   "o": [
+    {
+     "n": "Tamaño",
+     "t": "single",
+     "r": true,
+     "min": 0,
+     "max": 1,
+     "c": [
+      {
+       "n": "Chico",
+       "p": 0
+      },
+      {
+       "n": "Grande",
+       "p": 12
+      }
+     ]
+    },
+    {
+     "n": "Leche",
+     "t": "single",
+     "r": true,
+     "min": 0,
+     "max": 1,
+     "c": [
+      {
+       "n": "Entera",
+       "p": 0
+      },
+      {
+       "n": "Deslactosada",
+       "p": 0
+      },
+      {
+       "n": "Avena",
+       "p": 12
+      }
+     ]
+    },
+    {
+     "n": "Extras",
+     "t": "multi",
+     "r": false,
+     "min": 0,
+     "max": 2,
+     "c": [
+      {
+       "n": "Shot extra",
+       "p": 15
+      },
+      {
+       "n": "Jarabe de vainilla",
+       "p": 10
+      },
+      {
+       "n": "Canela",
+       "p": 0
+      }
+     ]
+    }
+   ]
+  },
+  "capuchino": {
+   "n": "Capuchino",
+   "p": 55,
+   "o": [
+    {
+     "n": "Leche",
+     "t": "single",
+     "r": true,
+     "min": 0,
+     "max": 1,
+     "c": [
+      {
+       "n": "Entera",
+       "p": 0
+      },
+      {
+       "n": "Deslactosada",
+       "p": 0
+      },
+      {
+       "n": "Avena",
+       "p": 12
+      }
+     ]
+    }
+   ]
+  },
+  "cold-brew": {
+   "n": "Cold brew",
+   "p": 60
+  },
+  "chilaquiles": {
+   "n": "Chilaquiles",
+   "p": 120,
+   "a": {
+    "f": 450,
+    "t": 720
+   },
+   "o": [
+    {
+     "n": "Salsa",
+     "t": "single",
+     "r": true,
+     "min": 0,
+     "max": 1,
+     "c": [
+      {
+       "n": "Verde",
+       "p": 0
+      },
+      {
+       "n": "Roja",
+       "p": 0
+      }
+     ]
+    },
+    {
+     "n": "Proteína",
+     "t": "single",
+     "r": true,
+     "min": 0,
+     "max": 1,
+     "c": [
+      {
+       "n": "Huevo",
+       "p": 0
+      },
+      {
+       "n": "Pollo",
+       "p": 15
+      }
+     ]
+    }
+   ]
+  },
+  "molletes": {
+   "n": "Molletes",
+   "p": 95,
+   "a": {
+    "f": 450,
+    "t": 720
+   }
+  },
+  "avena": {
+   "n": "Bowl de avena",
+   "p": 90,
+   "a": {
+    "f": 450,
+    "t": 720
+   }
+  },
+  "concha": {
+   "n": "Concha",
+   "p": 28
+  },
+  "croissant": {
+   "n": "Croissant",
+   "p": 38
+  },
+  "rol-canela": {
+   "n": "Rol de canela",
+   "p": 45
+  },
+  "rosca": {
+   "n": "Rosca de reyes",
+   "p": 380,
+   "a": {
+    "d": [
+     0,
+     6
+    ]
+   }
+  }
+ },
+ "url": "https://torrezzzzdev.github.io/factor-digital/cafeteria-demo/",
+ "preview": false
+}

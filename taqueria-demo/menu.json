@@ -1,0 +1,254 @@
+{
+ "name": "Taquería El Fogón (demo)",
+ "phone": "525500000001",
+ "tz": "America/Mexico_City",
+ "mode": "per_item",
+ "fixed": null,
+ "week": [
+  [
+   [
+    780,
+    1260
+   ]
+  ],
+  [],
+  [
+   [
+    780,
+    1020
+   ],
+   [
+    1140,
+    1410
+   ]
+  ],
+  [
+   [
+    780,
+    1020
+   ],
+   [
+    1140,
+    1410
+   ]
+  ],
+  [
+   [
+    780,
+    1020
+   ],
+   [
+    1140,
+    1410
+   ]
+  ],
+  [
+   [
+    780,
+    1020
+   ],
+   [
+    1140,
+    1410
+   ]
+  ],
+  [
+   [
+    780,
+    1410
+   ]
+  ]
+ ],
+ "hol": {
+  "h": [],
+  "d": []
+ },
+ "closed": [
+  "2026-12-24",
+  "2026-12-31"
+ ],
+ "orders": {
+  "on": true,
+  "fee": 30,
+  "types": [
+   {
+    "l": "Para llevar",
+    "a": false
+   },
+   {
+    "l": "A domicilio",
+    "a": true
+   }
+  ]
+ },
+ "res": {
+  "on": false,
+  "slot": 30,
+  "last": 60,
+  "lead": 30,
+  "ahead": 60,
+  "max": 12
+ },
+ "items": {
+  "pastor": {
+   "n": "Orden de tacos al pastor",
+   "p": 75,
+   "a": {
+    "f": 1140,
+    "t": 1410
+   },
+   "o": [
+    {
+     "n": "Tortilla",
+     "t": "single",
+     "r": true,
+     "min": 0,
+     "max": 1,
+     "c": [
+      {
+       "n": "Maíz",
+       "p": 0
+      },
+      {
+       "n": "Harina",
+       "p": 10
+      }
+     ]
+    },
+    {
+     "n": "Extras",
+     "t": "multi",
+     "r": false,
+     "min": 0,
+     "max": 3,
+     "c": [
+      {
+       "n": "Queso",
+       "p": 15
+      },
+      {
+       "n": "Aguacate",
+       "p": 20
+      },
+      {
+       "n": "Cebolla asada",
+       "p": 0
+      }
+     ]
+    }
+   ]
+  },
+  "suadero": {
+   "n": "Orden de tacos de suadero",
+   "p": 80,
+   "o": [
+    {
+     "n": "Tortilla",
+     "t": "single",
+     "r": true,
+     "min": 0,
+     "max": 1,
+     "c": [
+      {
+       "n": "Maíz",
+       "p": 0
+      },
+      {
+       "n": "Harina",
+       "p": 10
+      }
+     ]
+    },
+    {
+     "n": "Extras",
+     "t": "multi",
+     "r": false,
+     "min": 0,
+     "max": 3,
+     "c": [
+      {
+       "n": "Queso",
+       "p": 15
+      },
+      {
+       "n": "Aguacate",
+       "p": 20
+      },
+      {
+       "n": "Cebolla asada",
+       "p": 0
+      }
+     ]
+    }
+   ]
+  },
+  "campechano": {
+   "n": "Orden de tacos campechanos",
+   "p": 85
+  },
+  "costra": {
+   "n": "Costra de queso",
+   "p": 45,
+   "x": 1
+  },
+  "gringa": {
+   "n": "Gringa",
+   "p": 65
+  },
+  "volcan": {
+   "n": "Volcán",
+   "p": 40,
+   "o": [
+    {
+     "n": "Guiso",
+     "t": "single",
+     "r": true,
+     "min": 0,
+     "max": 1,
+     "c": [
+      {
+       "n": "Pastor",
+       "p": 0
+      },
+      {
+       "n": "Suadero",
+       "p": 0
+      },
+      {
+       "n": "Bistec",
+       "p": 5
+      }
+     ]
+    }
+   ]
+  },
+  "pozole": {
+   "n": "Pozole",
+   "p": 110,
+   "a": {
+    "d": [
+     0,
+     6
+    ]
+   }
+  },
+  "horchata": {
+   "n": "Horchata",
+   "p": 30
+  },
+  "jamaica": {
+   "n": "Jamaica",
+   "p": 30
+  },
+  "refresco": {
+   "n": "Refresco",
+   "p": 28
+  },
+  "agua": {
+   "n": "Agua",
+   "p": 20
+  }
+ },
+ "url": "https://torrezzzzdev.github.io/factor-digital/taqueria-demo/",
+ "preview": false
+}
